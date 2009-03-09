@@ -1,0 +1,12 @@
+<h1>Editing class_activity</h1>
+
+<% form_for(@class_activity) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @class_activity %> |
+<%= link_to 'Back', class_activities_path %>

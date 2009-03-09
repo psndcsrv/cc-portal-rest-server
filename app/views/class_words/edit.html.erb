@@ -1,0 +1,12 @@
+<h1>Editing class_word</h1>
+
+<% form_for(@class_word) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @class_word %> |
+<%= link_to 'Back', class_words_path %>

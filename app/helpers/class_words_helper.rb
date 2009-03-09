@@ -1,0 +1,2 @@
+module ClassWordsHelper
+end
