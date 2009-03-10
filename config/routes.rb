@@ -1,4 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
+  map.root :controller => "sessions", :action => "new"
+  
+  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+  map.login '/login', :controller => 'sessions', :action => 'new'
+  map.register '/register', :controller => 'users', :action => 'create'
+  map.signup '/signup', :controller => 'users', :action => 'new'
+  map.resources :users
+
+  map.resource :session
+
   map.resources :courses, :has_many => [:students, :activities], :has_one => [:teacher, :class_word]
 
   map.resources :class_students
@@ -9,13 +19,13 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :teachers, :has_many => [:students, :courses], :has_one => :school
 
-  map.resources :units, :has_many => :courses
+  map.resources :units, :has_many => :activities
 
-  map.resources :subjects, :has_many => :courses
+  map.resources :subjects, :has_many => :activities
 
   map.resources :projects
 
-  map.resources :levels, :has_many => :courses
+  map.resources :levels, :has_many => :activities
 
   map.resources :class_words, :has_one => :course
 

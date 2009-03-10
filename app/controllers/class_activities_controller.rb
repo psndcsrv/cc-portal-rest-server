@@ -1,4 +1,4 @@
-class ClassActivitiesController < ApplicationController
+class ClassActivitiesController < PortalResourceController
   # GET /class_activities
   # GET /class_activities.xml
   def index

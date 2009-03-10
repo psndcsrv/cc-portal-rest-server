@@ -1,4 +1,4 @@
-class LevelsController < ApplicationController
+class LevelsController < PortalResourceController
   # GET /levels
   # GET /levels.xml
   def index

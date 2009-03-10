@@ -1,4 +1,4 @@
-class CoursesController < ApplicationController
+class CoursesController < PortalResourceController
   # GET /courses
   # GET /courses.xml
   def index

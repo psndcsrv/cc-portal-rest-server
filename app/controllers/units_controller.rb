@@ -1,4 +1,4 @@
-class UnitsController < ApplicationController
+class UnitsController < PortalResourceController
   # GET /units
   # GET /units.xml
   def index

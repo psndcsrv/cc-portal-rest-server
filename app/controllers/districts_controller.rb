@@ -1,4 +1,4 @@
-class DistrictsController < ApplicationController
+class DistrictsController < PortalResourceController
   # GET /districts
   # GET /districts.xml
   def index

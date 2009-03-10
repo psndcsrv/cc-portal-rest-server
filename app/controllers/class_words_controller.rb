@@ -1,4 +1,4 @@
-class ClassWordsController < ApplicationController
+class ClassWordsController < PortalResourceController
   # GET /class_words
   # GET /class_words.xml
   def index

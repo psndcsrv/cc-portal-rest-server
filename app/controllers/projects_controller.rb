@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+class ProjectsController < PortalResourceController
   # GET /projects
   # GET /projects.xml
   def index

@@ -2,8 +2,24 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  include AuthenticatedSystem
+  
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  
+  before_filter :login_required
+  
+  def permission_granted
+    logger.info("[authentication] Permission granted to %s at %s for %s" %
+      [(logged_in? ? current_user.login : 'guest'), Time.now, request.request_uri])
+  end
+
+  def permission_denied
+    logger.info("[authentication] Permission denied to %s at %s for %s" %
+      [(logged_in? ? current_user.login : 'guest'), Time.now, request.request_uri])
+      flash[:warning] = "You do not have permission to access that resource."
+    access_denied
+  end
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
