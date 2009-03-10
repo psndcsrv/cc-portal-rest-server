@@ -13,7 +13,11 @@ class ClassWordsController < ApplicationController
   # GET /class_words/1
   # GET /class_words/1.xml
   def show
-    @class_word = ClassWord.find(params[:id])
+    if params[:course_id]
+      @class_word = Course.find(params[:course_id]).class_word
+    else
+      @class_word = ClassWord.find(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb

@@ -2,7 +2,11 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.xml
   def index
-    @activities = Activity.all
+    if params[:course_id]
+      @activities = Course.find(params[:course_id]).activities
+    else
+      @activities = Activity.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

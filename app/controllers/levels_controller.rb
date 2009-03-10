@@ -13,7 +13,11 @@ class LevelsController < ApplicationController
   # GET /levels/1
   # GET /levels/1.xml
   def show
-    @level = Level.find(params[:id])
+    if params[:activity_id]
+      @level = Activity.find(params[:activity_id]).level
+    else
+      @level = Level.find(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb

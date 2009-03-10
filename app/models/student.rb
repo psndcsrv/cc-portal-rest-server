@@ -6,6 +6,10 @@ class Student < ActiveRecord::Base
   
   has_many :courses, :through => :class_students
   
+  def teachers
+    courses.collect{|c| c.teacher }.flatten.uniq   
+  end
+  
   # Filter all members by member_type
   def self.find(*args)
     if args.first == :all || args.first == :first
@@ -13,7 +17,11 @@ class Student < ActiveRecord::Base
       args.each do |a|
         if a.kind_of?(Hash) && a[:conditions]
           saw_conditions = true
-          a[:conditions][:member_type] = 'student'
+          if a[:conditions].kind_of?(Hash)
+            a[:conditions][:member_type] = 'student'
+          else
+            a[:conditions] << " AND member_type = 'student'"
+          end
         end
       end
       if ! saw_conditions

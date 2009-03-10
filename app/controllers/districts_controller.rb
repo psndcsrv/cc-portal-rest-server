@@ -13,7 +13,11 @@ class DistrictsController < ApplicationController
   # GET /districts/1
   # GET /districts/1.xml
   def show
-    @district = District.find(params[:id])
+    if params[:school_id]
+      @district = School.find(params[:school_id]).district
+    else
+      @district = District.find(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb

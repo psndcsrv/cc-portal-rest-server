@@ -13,7 +13,11 @@ class SubjectsController < ApplicationController
   # GET /subjects/1
   # GET /subjects/1.xml
   def show
-    @subject = Subject.find(params[:id])
+    if params[:activity_id]
+      @subject = Activity.find(params[:activity_id]).subject
+    else
+      @subject = Subject.find(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb

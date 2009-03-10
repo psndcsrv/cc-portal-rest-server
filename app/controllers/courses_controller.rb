@@ -2,7 +2,21 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.xml
   def index
-    @courses = Course.all
+    if params[:student_id]
+      @courses = Student.find(params[:student_id]).courses
+    elsif params[:teacher_id]
+      @courses = Teacher.find(params[:teacher_id]).courses
+    elsif params[:unit_id]
+      @courses = Unit.find(params[:unit_id]).courses
+    elsif params[:subject_id]
+      @courses = Subject.find(params[:subject_id]).courses
+    elsif params[:level_id]
+      @courses = Level.find(params[:level_id]).courses
+    elsif params[:activity_id]
+      @courses = Activity.find(params[:activity_id]).courses
+    else
+      @courses = Course.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +27,11 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.xml
   def show
-    @course = Course.find(params[:id])
+    if params[:class_word_id]
+      @course = ClassWord.find(params[:class_word_id]).course
+    else
+      @course = Course.find(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb

@@ -1,29 +1,29 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :courses
+  map.resources :courses, :has_many => [:students, :activities], :has_one => [:teacher, :class_word]
 
   map.resources :class_students
 
   map.resources :class_activities
 
-  map.resources :students
+  map.resources :students, :has_many => [:teachers, :courses]
 
-  map.resources :teachers
+  map.resources :teachers, :has_many => [:students, :courses], :has_one => :school
 
-  map.resources :units
+  map.resources :units, :has_many => :courses
 
-  map.resources :subjects
+  map.resources :subjects, :has_many => :courses
 
   map.resources :projects
 
-  map.resources :levels
+  map.resources :levels, :has_many => :courses
 
-  map.resources :class_words
+  map.resources :class_words, :has_one => :course
 
-  map.resources :districts
+  map.resources :districts, :has_many => :schools
 
-  map.resources :schools
+  map.resources :schools, :has_many => :teachers, :has_one => [:district]
 
-  map.resources :activities
+  map.resources :activities, :has_many => :courses, :has_one => [:level, :unit, :subject]
 
   map.resources :members
 

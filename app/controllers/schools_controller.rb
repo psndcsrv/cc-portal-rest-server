@@ -13,7 +13,11 @@ class SchoolsController < ApplicationController
   # GET /schools/1
   # GET /schools/1.xml
   def show
-    @school = School.find(params[:id])
+    if params[:teacher_id]
+      @school = Teacher.find(params[:teacher_id]).school
+    else
+      @school = School.find(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb

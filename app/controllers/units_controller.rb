@@ -13,7 +13,11 @@ class UnitsController < ApplicationController
   # GET /units/1
   # GET /units/1.xml
   def show
-    @unit = Unit.find(params[:id])
+    if params[:activity_id]
+      @unit = Activity.find(params[:activity_id]).unit
+    else
+      @unit = Unit.find(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb
