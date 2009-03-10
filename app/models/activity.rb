@@ -1,4 +1,4 @@
-class Activity < ActiveRecord::Base
+class Activity < PortalObject
   set_table_name :portal_activities
   set_primary_key :activity_id
   

@@ -1,4 +1,4 @@
-class Unit < ActiveRecord::Base
+class Unit < PortalObject
   set_table_name :portal_units
   set_primary_key :unit_id
   

@@ -1,4 +1,4 @@
-class School < ActiveRecord::Base
+class School < PortalObject
   set_table_name :portal_schools
   set_primary_key :school_id
   

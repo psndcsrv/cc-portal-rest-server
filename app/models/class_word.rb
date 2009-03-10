@@ -1,4 +1,4 @@
-class ClassWord < ActiveRecord::Base
+class ClassWord < PortalObject
   set_table_name :class_words
   set_primary_key :class_word_id
   

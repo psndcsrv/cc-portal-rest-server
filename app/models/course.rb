@@ -1,4 +1,4 @@
-class Course < ActiveRecord::Base
+class Course < PortalObject
   set_table_name :portal_classes
   set_primary_key :class_id
   

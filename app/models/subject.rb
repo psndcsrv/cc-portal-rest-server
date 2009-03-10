@@ -1,4 +1,4 @@
-class Subject < ActiveRecord::Base
+class Subject < PortalObject
   set_table_name :portal_subjects
   set_primary_key :subject_id
   

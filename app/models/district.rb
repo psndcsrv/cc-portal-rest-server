@@ -1,4 +1,4 @@
-class District < ActiveRecord::Base
+class District < PortalObject
   set_table_name :portal_districts
   set_primary_key :district_id
   
