@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  access_rule 'registered || admin'
-  
+  skip_before_filter :login_required 
   # render new.rhtml
   def new
     @user = User.new
