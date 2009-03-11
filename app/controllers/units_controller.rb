@@ -2,7 +2,11 @@ class UnitsController < PortalResourceController
   # GET /units
   # GET /units.xml
   def index
-    @units = Unit.all
+    if params[:project_id]
+      @units = Project.find(params[:project_id]).units
+    else
+      @units = Unit.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

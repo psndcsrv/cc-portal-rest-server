@@ -13,7 +13,11 @@ class ProjectsController < PortalResourceController
   # GET /projects/1
   # GET /projects/1.xml
   def show
-    @project = Project.find(params[:id])
+    if params[:unit_id]
+      @project = Unit.find(params[:unit_id]).project
+    else
+      @project = Project.find(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb

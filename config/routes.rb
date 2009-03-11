@@ -19,11 +19,11 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :teachers, :has_many => [:students, :courses], :has_one => :school
 
-  map.resources :units, :has_many => :activities
+  map.resources :units, :has_many => :activities, :has_one => :project
 
   map.resources :subjects, :has_many => :activities
 
-  map.resources :projects
+  map.resources :projects, :has_many => [:units]
 
   map.resources :levels, :has_many => :activities
 
