@@ -1,0 +1,18 @@
+<h1>Listing class_diy_activities</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @class_diy_activities.each do |class_diy_activity| %>
+  <tr>
+    <td><%= link_to 'Show', class_diy_activity %></td>
+    <td><%= link_to 'Edit', edit_class_diy_activity_path(class_diy_activity) %></td>
+    <td><%= link_to 'Destroy', class_diy_activity, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New class_diy_activity', new_class_diy_activity_path %>

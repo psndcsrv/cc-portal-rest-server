@@ -1,0 +1,2 @@
+module ClassDiyActivitiesHelper
+end

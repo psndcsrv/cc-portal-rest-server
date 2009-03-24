@@ -7,8 +7,10 @@ class Course < PortalObject
   belongs_to :school, :foreign_key => :class_school
   
   has_many :class_activities, :foreign_key => :class_id
+
   has_many :class_students, :foreign_key => :class_id
   
   has_many :activities, :through => :class_activities
+  has_many :class_diy_activities, :foreign_key => :class_id
   has_many :students, :through => :class_students
 end
